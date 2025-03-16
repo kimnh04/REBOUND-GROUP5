@@ -1,0 +1,309 @@
+/* styles.css */
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  
+  .signin-popup {
+    position: relative;
+    width: 1144px;
+    height: 694px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    overflow: hidden;
+    /* Add this to force the popup to have its own stacking context */
+    z-index: 1;
+  }
+  
+  .left-side {
+    position: absolute;
+    left: 0;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    background: #F5F5F5;
+    border-radius: 15px 0 0 15px;
+    overflow: hidden;
+  }
+  
+  .left-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #e5d8ca;
+  }
+  
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 50px;
+    gap: 24px;
+    position: absolute;
+    width: 572px;
+    height: 694px;
+    left: 50%;
+    top: 0;
+    background: #FAF9F6;
+    border-radius: 0 15px 15px 0;
+  }
+  
+  .close-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .close-icon {
+    width: 24px;
+    height: 24px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .close-icon::before, 
+  .close-icon::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: white;
+    top: 11px;
+    left: 5px;
+  }
+  
+  .close-icon::before {
+    transform: rotate(45deg);
+  }
+  
+  .close-icon::after {
+    transform: rotate(-45deg);
+  }
+  
+  .title {
+    font-weight: 700;
+    font-size: 36px;
+    color: #000000;
+  }
+  
+  .welcome-msg {
+    font-weight: 700;
+    font-size: 40px;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+  
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 15px;
+    width: 450px;
+    align-items: center;
+  }
+  
+  .form-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .form-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+  }
+  
+  .required {
+    color: #F2455C;
+    margin-left: 5px;
+    font-style: italic;
+  }
+  
+  .form-input {
+    width: 273px;
+    height: 26px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 14px;
+    font-size: 14px;
+  }
+  
+  .form-input::placeholder {
+    font-style: italic;
+    color: #D9D9D9;
+  }
+  
+  .checkbox-row {
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  .checkbox-input {
+    width: 14px;
+    height: 14px;
+    background: #FFFFFF;
+    border-radius: 2px;
+    appearance: none;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+  
+  .checkbox-input:checked {
+    background-color: #FAF9F6;
+    border: 1px solid #CDC65F;
+    position: relative;
+  }
+  
+  .checkbox-input:checked::after {
+    content: "✓";
+    font-size: 14px;
+    color: #CDC65F;
+    position: absolute;
+    left: 0px;
+    top: -2px;
+  }
+  
+  .checkbox-label {
+    font-size: 14px;
+    line-height: 15px;
+    color: #1E1E1E;
+    max-width: 440px;
+    margin-top: 3px;
+  }
+  
+  .signin-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 21px;
+    width: 137px;
+    height: 42px;
+    background: #DDD7C0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #FFFFFF;
+    /* Remove any margin that might affect centering */
+    margin-left: 45%;
+    margin-right: 40%;
+  }
+  
+  .signup-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 10px;
+  }
+  
+  .signup-text {
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+  }
+  
+  .signup-link {
+    font-size: 16px;
+    line-height: 20px;
+    color: #C5BB95;
+    text-decoration: none;
+    font-style: italic;
+  }
+  
+  .form-input, .checkbox-input, .signin-btn, .signup-link {
+    position: relative;
+    z-index: 2;
+  }
+
+  
+  .reset-instructions {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0 20px;
+    line-height: 1.5;
+  }
+  
+  /* Ensure the container height accommodates the signup form which has more fields */
+  .signin-popup {
+    min-height: 694px;
+    height: auto;
+  }
+  
+  /* Adjust right side to handle variable content height */
+  .right-side {
+    height: auto;
+    min-height: 694px;
+    overflow-y: auto;
+  }
+  
+  /* Add transitions for smoother form switching */
+  .right-side > div {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .error-message {
+    color: #F2455C;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .validation-error {
+    color: #F2455C;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-input.invalid {
+    border: 1px solid #F2455C;
+  }
+
+  .forgot-password-link {
+    font-size: 12px;
+    color: #F2455C;
+    text-decoration: none;
+  }
+
+  .forgot-password-link:hover {
+    text-decoration: underline;
+  }
+
+  .signin-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+  }
+
+  /* Loading state styles */
+  .signin-btn.loading {
+    opacity: 0.7;
+    cursor: wait;
+  }

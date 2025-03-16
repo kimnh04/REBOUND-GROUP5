@@ -1,0 +1,212 @@
+<!-- Hero Section -->
+<!-- WRAPPER FOR TRANSITION -->
+<div class="hero-container">
+    <div class="hero-wrapper">
+        <!-- HERO SECTION (First Slide) -->
+        <section *ngIf="activeDotIndex === 0" class="hero" @slideAnimation>
+            <div class="hero-content">
+                <h1><b>LOVE</b></h1>
+                <p>
+                    LOVE has been an icon of jewelry design since its creation in New York in 1969. <br>
+                    Timeless and meaningful, it is the seal of intense love stories.
+                </p>
+                <a [routerLink]="['/product-category', 'Premium Jewelry']" class="btn">SHOP THE COLLECTION</a>
+            </div>
+        </section>
+
+        <!-- IMAGE SECTIONS (For Second & Third Slides) -->
+        <section *ngIf="activeDotIndex !== 0" class="hero-image" @slideAnimation>
+            <img [src]="heroSlides[activeDotIndex - 1]" alt="Hero Image">
+        </section>
+    </div>
+
+    <!-- SLIDER DOTS -->
+    <div class="dots">
+        <div *ngFor="let dot of [0, 1, 2]; let i = index" class="dot" [class.active]="i === activeDotIndex"
+            (click)="changeSlide(i)">
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Products Section -->
+<h2 class="section-title">REBOUND PRODUCTS</h2>
+<div class="products">
+    <a [routerLink]="['/product-category', 'Basic Piercing']" class="product">
+        <img src="assets/images/first-product.png" alt="Basic Jewelry">
+        <div class="product-category">BASIC</div>
+    </a>
+    <a [routerLink]="['/product-category', 'High-quality Jewelry']" class="product">
+        <img src="assets/images/second-product.png" alt="High Quality Jewelry">
+        <div class="product-category">HIGH QUALITY</div>
+    </a>
+    <a [routerLink]="['/product-category', 'Premium Jewelry']" class="product">
+        <img src="assets/images/third-product.png" alt="Premium Jewelry">
+        <div class="product-category">PREMIUM</div>
+    </a>
+</div>
+
+
+<!-- About Section -->
+<h2 class="section-title">ABOUT US</h2>
+<section class="about">
+    <div class="about-image"></div>
+    <div class="about-content">
+        <p><strong>REBOUND PIERCING</strong> blends charm and style with the art of piercing. We offer unique
+            shopping experiences, expert consultations, and high-quality jewelry that reflects your personal style.
+            With top-tier quality, we commit to delivering absolute customer satisfaction.</p>
+    </div>
+</section>
+
+<!-- Core Values Section -->
+<section class="core-values">
+    <h2 class="section-title">CORE VALUE</h2>
+    <div class="values">
+        <div class="value">
+            <div class="value-icon">
+                <img src="assets/images/global-icon.png" alt="Global Icon" />
+            </div>
+            <h3>Global</h3>
+        </div>
+        <div class="value">
+            <div class="value-icon">
+                <img src="assets/images/professional-icon.png" alt="Professional Icon" />
+            </div>
+            <h3>Professional</h3>
+        </div>
+        <div class="value">
+            <div class="value-icon">
+                <img src="assets/images/high-quality-icon.png" alt="High Quality Icon" />
+            </div>
+            <h3>High-quality</h3>
+        </div>
+    </div>
+</section>
+
+<!-- New Collection Section -->
+<section id="new-collection">
+    <h2 class="section-title">NEW COLLECTION</h2>
+    <div class="collection-items">
+        <div *ngIf="newCollection.length === 0" class="no-products">
+            <p>No products available at the moment.</p>
+        </div>
+
+        <div class="collection-items">
+            <div class="collection-item" *ngFor="let item of newCollection">
+                <!-- Use routerLink to navigate to the product detail page with the Title_URL -->
+                <a [routerLink]="['/product-detail', item.Product_ID]">
+                    <img [src]="item.Product_Image" [alt]="item.Product_Name" style="width: 100%;">
+                    <h3 class="product-title">{{ item.Product_Name }}</h3>
+                    <p class="product-price">{{ formatPrice(item.Product_Price) }} VND</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section -->
+<section class="blog">
+    <h2 class="section-title">BLOG</h2>
+    <div class="blog-posts">
+        <div class="blog-post">
+            <a href="#">
+                <div class="blog-image">
+                    <img src="assets/images/first-blog.png"
+                        alt="What you should know before getting a piercing without numbing shots">
+                </div>
+                <div class="blog-content">
+                    <h3>WHAT YOU SHOULD KNOW BEFORE GETTING A PIERCING WITHOUT NUMBING SHOTS</h3>
+                    <p>Learn everything you need to know about piercings without numbing...</p>
+                </div>
+            </a>
+        </div>
+        <div class="blog-post">
+            <a href="link-to-blog-post-2.html">
+                <div class="blog-image">
+                    <img src="assets/images/second-blog.png" alt="Piercing Aftercare: Healing tips and advice">
+                </div>
+                <div class="blog-content">
+                    <h3>PIERCING AFTERCARE: HEALING TIPS AND ADVICE</h3>
+                    <p>Discover the best practices for taking care of your new piercing...</p>
+                </div>
+            </a>
+        </div>
+        <div class="blog-post">
+            <a href="link-to-blog-post-3.html">
+                <div class="blog-image">
+                    <img src="assets/images/third-blog.png" alt="Where to get pierced: Choosing the right studio">
+                </div>
+                <div class="blog-content">
+                    <h3>WHERE TO GET PIERCED: CHOOSING THE RIGHT STUDIO</h3>
+                    <p>Find out what to look for when selecting a piercing studio...</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq">
+    <div class="faq-content">
+        <h2>Everything You Need to Know</h2>
+        <a [routerLink]="'/faqs'" routerLinkActive="active" class="faq-btn">FAQ</a>
+    </div>
+</section>
+
+<!-- Branches Section -->
+<section class="branches">
+    <h2 class="section-title">OUR BRANCHES</h2>
+
+    <!-- Location Tabs -->
+    <div class="location-tabs">
+        <div class="location-tab" *ngFor="let location of locations"
+            [class.selected]="location.key === selectedLocation" (click)="showBranches(location.key)">
+            {{ location.name }}
+        </div>
+    </div>
+
+    <div class="branch-container">
+        <!-- Display branches based on selected location -->
+        <div class="branch-group" *ngIf="selectedLocation === 'hanoi'">
+            <div class="branch" *ngFor="let branch of branches.hanoi">
+                <div class="branch-image" [ngStyle]="{'background-image': 'url(' + branch.image + ')'}"></div>
+                <div class="branch-details">
+                    <h3 class="branch-name">{{ branch.name }}</h3>
+                    <div class="branch-info">
+                        <div class="branch-icon location-icon">
+                            <img src="assets/images/location-icon.png" alt="Location Icon">
+                        </div>
+                        <span class="branch-address">{{ branch.address }}</span>
+                    </div>
+                    <div class="branch-info">
+                        <div class="branch-icon clock-icon">
+                            <img src="assets/images/time-icon.png" alt="Clock Icon">
+                        </div>
+                        <span class="branch-hours">{{ branch.hours }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="branch-group" *ngIf="selectedLocation === 'hochiminh'">
+            <div class="branch" *ngFor="let branch of branches.hochiminh">
+                <div class="branch-image" [ngStyle]="{'background-image': 'url(' + branch.image + ')'}"></div>
+                <div class="branch-details">
+                    <h3 class="branch-name">{{ branch.name }}</h3>
+                    <div class="branch-info">
+                        <div class="branch-icon location-icon">
+                            <img src="assets/images/location-icon.png" alt="Location Icon">
+                        </div>
+                        <span class="branch-address">{{ branch.address }}</span>
+                    </div>
+                    <div class="branch-info">
+                        <div class="branch-icon clock-icon">
+                            <img src="assets/images/time-icon.png" alt="Clock Icon">
+                        </div>
+                        <span class="branch-hours">{{ branch.hours }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

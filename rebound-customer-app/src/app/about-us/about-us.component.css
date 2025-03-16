@@ -1,0 +1,522 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    color: #333;
+    /* background-color: #f9f8f3; Light cream background matching the image */
+    width: 100vw
+}
+
+/* Product Section */
+.products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 50px;
+    margin-bottom: 30px;
+}
+
+.product {
+    width: 32%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product:hover img {
+    transform: scale(1.05);
+}
+
+.product-category {
+    position: absolute;
+    text-decoration: underline;
+    bottom: 20px;
+    left: 20px;
+    padding: 5px 15px;
+    font-size: 14px;
+    color: #978C5C;
+    z-index: 10;
+    font-weight: bold;
+}
+
+
+
+/* Hero Section */
+/* Fix the hero container width */
+.hero-container {
+    width: 100%; /* Remove the "px" after 100% */
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Ensure hero wrapper takes full width */
+.hero-wrapper {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Make sure hero takes full width */
+.hero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 50px;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+    background-image: url('/assets/images/first-row.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Fix hero-image to span full width */
+.hero-image {
+    width: 100%;
+    height: 100%; /* Add height 100% */
+    position: absolute;
+    top: 0;       /* Position from top */
+    left: 0;      /* Position from left */
+}
+
+/* Make sure the img inside hero-image also spans full width and height */
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This maintains aspect ratio while filling the container */
+}
+
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    /* Căn giữa phần nội dung */
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+    /* Đảm bảo không có khoảng trống xung quanh */
+    max-width: 80%;
+    /* Giới hạn chiều rộng của văn bản */
+    box-sizing: border-box;
+    word-wrap: break-word;
+    /* Đảm bảo văn bản sẽ tự động ngắt dòng nếu quá dài */
+    overflow: hidden;
+    /* Ẩn phần văn bản bị tràn ra ngoài */
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #978C5C;
+}
+
+.hero p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #8a6343;
+    color: #8a6343;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: #8a6343;
+    color: white;
+}
+
+/* Dots for Hero Slider */
+.dots {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #8a6343;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    font-size: 32;
+}
+
+
+
+/* About Section */
+.about {
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    margin: 30px 0;
+    min-height: 400px; /* Adjust height as needed */
+}
+
+.about-image {
+    width: 40%;
+    height: 400px; /* Increased height */
+    background-image: url('/assets/images/third-row.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.about-content {
+    width: 60%;
+    padding-left: 30px;
+}
+
+.about-content p {
+    line-height: 1.8; /* Slightly increased for better readability */
+    font-size: 16px; /* Adjusted for better visibility */
+}
+
+
+/* Core Values Section */
+.core-values {
+    padding: 20px 50px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.values {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.value {
+    width: 25%;
+    text-align: center;
+}
+
+.value-icon {
+    margin-bottom: 10px;
+}
+
+.value-icon img {
+    width: 50px;
+    height: 50px;
+    background-color: #E0D9C8;
+    border-radius: 50%;
+    padding: 10px;
+    object-fit: contain;
+}
+
+.value h3 {
+    font-weight: 500;
+    font-size: 16px;
+    color: #666;
+}
+
+/* New Collection Section */
+.collection-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .collection-item {
+    width: 250px; /* Adjust width */
+    text-align: center;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .collection-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .collection-item a {
+    text-decoration: none; /* Removes underline */
+    color: black; /* Changes text color */
+  }
+  
+  .collection-item a:hover {
+    color: #ffffff; /* Optional: Change color on hover */
+  }
+  
+
+  
+  .product-title {
+    font-size: 0.75rem;
+    margin-top: 10px;
+    color: black;
+  }
+  
+  .product-price {
+    font-size: 0.75rem;
+    color: #978C5C; /* Adjust color to match */
+    font-weight: bold;
+  }
+
+/* Blog Section */
+.blog {
+    padding: 30px 50px;
+}
+
+.blog-posts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.blog-post {
+    width: 32%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.blog-content h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.blog-content p {
+    font-size: 12px;
+    color: #fff;
+}
+
+/* FAQ Section */
+.faq {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    padding-left: 50px;
+    background-image: url('/assets/images/FAQ.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.faq-content {
+    position: relative;
+    z-index: 1;
+}
+
+.faq h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.faq-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    
+}
+
+.faq-btn:active {
+    background-color: #E6E2AD;  /* Changes color when clicked */
+}
+
+/* Branches Section */
+
+
+.branch-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;    
+}
+
+.branch-group {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    gap: 20px; /* Space between cards */
+    justify-content: space-between; /* Distributes them evenly */
+}
+
+.branches {
+    padding: 50px;
+    background-color: #fff;
+}
+
+.branch-card {
+    flex: 1; /* Allows cards to take equal width */
+    min-width: 300px; /* Prevents cards from shrinking too much */
+}
+
+.location-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* CSS cho các nút chọn thành phố */
+.location-tab {
+    padding: 8px 20px;
+    background-color: #E6E2AD;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 22px;
+    color: white; /* Màu chữ nhạt cho các nút không được chọn */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* CSS khi nút được chọn */
+.location-tab.selected {
+    background-color: #8a6343; 
+    color: white; 
+}
+
+/* CSS khi hover vào nút chưa được chọn */
+.location-tab:not(.selected):hover {
+    background-color: #E0D9C8;
+    color: #8a6343; 
+}
+
+/* Đảm bảo khi hover vào nút đã chọn thì màu sắc giữ nguyên */
+.location-tab.selected:hover {
+    background-color: #8a6343; 
+    color: white;
+}
+
+/* Đảm bảo màu nút thay đổi khi người dùng click vào */
+.location-tab:focus, .location-tab:active {
+    background-color: #8a6343;
+    color: white;
+}
+
+/* Loại bỏ hiệu ứng hover cho các nút đã được chọn */
+.location-tab.selected:focus,
+.location-tab.selected:active {
+    background-color: #8a6343;
+    color: white;
+}
+
+/* Trạng thái pressed (khi nút được nhấn) */
+.location-tab:active {
+    background-color: #5c3b2f; /* Màu nền khi nút đang được nhấn */
+    transform: scale(0.98); /* Tạo hiệu ứng nút bị ấn xuống */
+}
+
+.branch-locations {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Added to ensure responsiveness on smaller screens */
+}
+
+.branch {
+    width: 100%; /* Adjusting width for spacing */
+    background-color: #F2F0D4;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    flex: 1; /* Makes each branch take equal width */
+    min-width: 300px; /* Prevents cards from shrinking too much */
+    max-width: 48%; /* Ensures two branches fit in one row */
+}
+
+.branch-image {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.branch-details {
+    padding: 20px;
+}
+
+.branch-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #877A4A;
+}
+
+.branch-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.branch-info .branch-icon img {
+    width: 18px; /* Size of the icon */
+    height: 18px;
+    margin-right: 8px; /* Space between icon and text */
+}
+
+/* Text styling */
+.branch-address, .branch-hours {
+    font-size: 14px;
+    color: #978C5C;
+}
+
+/* Aligning text with icons */
+.branch-address {
+    display: flex;
+    align-items: center;
+}
