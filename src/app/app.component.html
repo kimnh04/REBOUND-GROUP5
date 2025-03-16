@@ -1,0 +1,12 @@
+<div class="app-container">
+  <app-header [ngStyle]="{ 'display': isLoginPage() ? 'none' : 'block' }"></app-header> <!-- Ẩn header khi ở trang login -->
+  <div class="content-container">
+    <!-- Sidebar chỉ hiển thị khi không phải trang login -->
+    <div class="side-nav-bar" [ngStyle]="{ 'display': isLoginPage() ? 'none' : 'block' }"> 
+      <app-side-bar></app-side-bar>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
