@@ -1,0 +1,99 @@
+<div class="signup-popup">
+    <!-- Left side with image -->
+    <div class="left-side">
+        <img class="left-img" src="assets/images/background.png" alt="Fabric texture">
+    </div>
+
+    <!-- Right side with form -->
+    <div class="right-side">
+        <button class="close-btn" (click)="closeModal()">
+            <div class="close-icon"></div>
+        </button>
+
+        <h1 class="title">Sign Up</h1>
+
+        <form class="form-section" (ngSubmit)="onSubmit()">
+            <!-- Full name field -->
+            <div class="form-row">
+                <label class="form-label">Full name:<span class="required">*</span></label>
+                <input type="text" class="form-input" placeholder="Enter full name" [(ngModel)]="userData.fullName"
+                    name="fullName" required>
+            </div>
+
+            <!-- Phone number field -->
+            <div class="form-row">
+                <label class="form-label">Phone number:<span class="required">*</span></label>
+                <input type="tel" class="form-input" placeholder="Enter phone number" [(ngModel)]="userData.phoneNumber"
+                    name="phoneNumber" required>
+            </div>
+
+            <!-- Email field -->
+            <div class="form-row">
+                <label class="form-label">Email:<span class="required">*</span></label>
+                <input type="email" class="form-input" placeholder="Enter email" [(ngModel)]="userData.email"
+                    name="email" required>
+            </div>
+
+            <!-- Address field -->
+            <div class="form-row">
+                <label class="form-label">Address:<span class="required">*</span></label>
+                <input type="text" class="form-input" placeholder="Enter address" [(ngModel)]="userData.address"
+                    name="address" required>
+            </div>
+
+            <!-- Sex radio buttons -->
+            <div class="form-row">
+                <label class="form-label">Sex:<span class="required">*</span></label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="sex" id="male" class="radio-input" [(ngModel)]="userData.sex"
+                            value="male" required>
+                        <label for="male" class="radio-label">Male</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="sex" id="female" class="radio-input" [(ngModel)]="userData.sex"
+                            value="female">
+                        <label for="female" class="radio-label">Female</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password field -->
+            <div class="form-row">
+                <label class="form-label">Password:<span class="required">*</span></label>
+                <input type="password" class="form-input" placeholder="Enter password" [(ngModel)]="userData.password"
+                    name="password" required>
+            </div>
+
+            <!-- Confirm Password field -->
+            <div class="form-row">
+                <label class="form-label">Confirm Password:<span class="required">*</span></label>
+                <input type="password" class="form-input" placeholder="Enter password again"
+                    [(ngModel)]="userData.confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <!-- Terms checkbox -->
+            <div class="checkbox-row">
+                <input type="checkbox" id="terms" class="checkbox-input" [(ngModel)]="userData.termsAccepted"
+                    name="termsAccepted" required>
+                <label for="terms" class="checkbox-label">I have and agree to Rebound's General Terms and Conditions and
+                    Privacy Policy.</label>
+            </div>
+
+            <!-- Sign up button -->
+            <button type="submit" class="signup-btn">Sign Up</button>
+            <!-- Login link -->
+            <div class="login-section">
+                <span class="login-text">Already have an account?</span>
+                <a class="login-link" href="javascript:void(0)" (click)="backToLogin($event)">Sign In now</a>
+            </div>
+        </form>
+    </div>
+    <!-- Announcement Message -->
+    <div class="announcement" [class.show]="showAnnouncement">
+        <div class="announcement-content">
+            <i class="fas fa-check-circle"></i>
+            Signing up successfully! Thank you for joining us.
+        </div>
+    </div>
+</div>

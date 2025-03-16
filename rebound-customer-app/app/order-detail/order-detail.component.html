@@ -1,0 +1,38 @@
+<div class="product-table">
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of order.products">
+                <td>{{ product.name }}</td>
+                <td>{{ product.price | number:'1.0-0' }} VND</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.subtotal | number:'1.0-0' }} VND</td>
+            </tr>
+            <tr class="summary-row">
+                <td>Shipping fee</td>
+                <td></td>
+                <td></td>
+                <td>{{ order.shippingFee | number:'1.0-0' }} VND</td>
+            </tr>
+            <tr class="summary-row">
+                <td>Discount</td>
+                <td></td>
+                <td></td>
+                <td>{{ order.discount | number:'1.0-0' }} VND</td>
+            </tr>
+            <tr class="summary-row total-row">
+                <td><strong>Total</strong></td>
+                <td></td>
+                <td></td>
+                <td><strong>{{ order.total | number:'1.0-0' }} VND</strong></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

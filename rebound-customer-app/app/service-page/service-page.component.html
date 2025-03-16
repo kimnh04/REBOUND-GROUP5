@@ -1,0 +1,99 @@
+<div class="container">
+    <section class="piercing-of-day">
+        <div class="piercing-image">
+            <img src="assets/images/first_row.png" alt="Piercing Service">
+        </div>
+    </section>
+
+    <!-- Piercing Placement Section -->
+    <section class="piercing-of-day">
+        <div class="piercing-image">
+            <img src="assets/images/second-row.png" alt="Piercing Service">
+        </div>
+    </section>
+    <h2 class="section-title">PIERCING PLACEMENTS</h2>
+    <section class="piercing-of-day">
+        <div class="piercing-image">
+            <img src="assets/images/v95_433.png" alt="Piercing Placements">
+        </div>
+    </section>
+
+    <!-- Piercing Types Gallery Section -->
+    <section class="piercing-types-gallery">
+        <div class="gallery-nav left-nav" (click)="moveGallery(-1)">&#10094;</div>
+        <div class="gallery-nav right-nav" (click)="moveGallery(1)">&#10095;</div>
+        <div class="piercing-types-container" (transitionend)="onTransitionEnd($event)">
+                <div class="piercing-type">
+                    <img src="assets/images/lobe-piercing.png" alt="Lobe Piercing">
+                    <div class="type-label-container">
+                        <span class="type-label">LOBE</span>
+                    </div>
+                </div>
+                <div class="piercing-type">
+                    <img src="assets/images/septum-piercing.png" alt="Septum Piercing">
+                    <div class="type-label-container">
+                        <span class="type-label">SEPTUM</span>
+                    </div>
+                </div>
+                <div class="piercing-type">
+                    <img src="assets/images/eyebrow-piercing.png" alt="Vertical Helix Piercing">
+                    <div class="type-label-container">
+                        <span class="type-label">EYEBROW</span>
+                    </div>
+                </div>
+                <div class="piercing-type">
+                    <img src="assets/images/conch-piercing.png" alt="Conch Piercing">
+                    <div class="type-label-container">
+                        <span class="type-label">CONCH</span>
+                    </div>
+                </div>
+                <div class="piercing-type">
+                    <img src="assets/images/nostril.png" alt="Nostril Piercing">
+                    <div class="type-label-container">
+                        <span class="type-label">NOSTRIL</span>
+                    </div>
+                </div>
+                <div class="piercing-type">
+                    <img src="assets/images/daith-piercing.png" alt="Daith Piercing">
+                    <div class="type-label-container">
+                        <span class="type-label">DAITH</span>
+                    </div>
+                </div>
+                <div class="piercing-type">
+                    <img src="assets/images/vertical-helix.png" alt="Vertical Helix Piercing">
+                    <div class="type-label-container">
+                        <span class="type-label">VERTICAL HELIX</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <h2 class="section-title">AFTER-CARE SERVICE</h2>
+    <section class="piercing-of-after">
+        <div class="piercing-image">
+            <img src="assets/images/v59_797.png" alt="AFTER-CARE">
+            <div class="piercing-content-after">
+                <h2>To ensure the healthiest piercings, <span class="rebound-text">REBOUND</span> always prioritizes
+                    building a meticulous medical care process for our customers. Our medical team is professional,
+                    dedicated, and respectful towards every client.</h2>
+                <a routerLink="/booking" routerLinkActive="active">
+                    <button class="book-now-btn" (click)="navigateToBooking()">Register Now</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Appointment Section -->
+    <section class="piercing-of-after">
+        <div class="piercing-image">
+            <img src="assets/images/last-row.png" alt="AFTER-CARE">
+            <div class="piercing-content-after">
+                <!-- Thêm thẻ <a> bao quanh nút để tạo liên kết -->
+                <a routerLink="/booking" routerLinkActive="active">
+                    <button class="book-now-btn-last" type="button" (click)="navigateToBooking()">Book Now</button>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
