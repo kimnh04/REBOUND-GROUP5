@@ -1,0 +1,36 @@
+<div class="piercing-container">
+    <div class="piercing-wrapper">
+        <div class="piercing-image-container"></div>
+        <div class="piercing-form-container">
+            <div class="piercing-logo-container"></div>
+            <h2>Book A Piercing Appointment!</h2>
+            <form class="piercing-form" (ngSubmit)="submitBooking($event)">
+                <div class="piercing-form-group">
+                    <label for="name"><span class="required"></span></label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="piercing-form-group">
+                    <label for="phone"><span class="required"></span></label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="piercing-form-group">
+                    <label for="date"><span class="required"></span></label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="piercing-form-group">
+                    <label for="time"><span class="required"></span></label>
+                    <input type="time" id="time" required>
+                </div>
+                <button type="submit" class="piercing-submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Booking Announcement -->
+    <div class="announcement" [class.show]="showBookingAnnouncement">
+        <div class="announcement-content">
+            <i class="fas fa-check-circle"></i>
+            Booking appointment successfully!
+        </div>
+    </div>
+</div>
