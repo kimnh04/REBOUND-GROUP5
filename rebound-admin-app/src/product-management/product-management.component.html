@@ -1,0 +1,79 @@
+<!-- src/app/product-management/product-management.component.html -->
+<div class="container">
+    <!-- Search Bar (Optional, you can remove it if not needed) -->
+    <div class="search-box">
+        <input type="text" placeholder="Search products...">
+        <button>
+            <svg width="100%" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.7422 10.3439C12.5329 9.2673 13 7.9382 13 6.5C13 2.91015 10.0899 0 6.5 0C2.91015 0 0 2.91015 0 6.5C0 10.0899 2.91015 13 6.5 13C7.93858 13 9.26801 12.5327 10.3448 11.7415L10.3439 11.7422C10.3734 11.7822 10.4062 11.8204 10.4424 11.8566L14.2929 15.7071C14.6834 16.0976 15.3166 16.0976 15.7071 15.7071C16.0976 15.3166 16.0976 14.6834 15.7071 14.2929L11.8566 10.4424C11.8204 10.4062 11.7822 10.3734 11.7422 10.3439ZM12 6.5C12 9.53757 9.53757 12 6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5Z" fill="black"/>
+            </svg>                
+        </button>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div>
+            <h1>Product Management</h1>
+            <h3>Total Products: {{ products.length }}</h3>
+        </div>
+        <button class="add-button" [routerLink]="['/add-product']">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.52 15.192V0.407999H10.648V15.192H6.52ZM0.984 9.752V5.848H16.216V9.752H0.984Z" fill="white"/>
+            </svg>
+            Add                
+        </button>
+    </div>
+
+    <!-- Product Table -->
+    <table class="product-table" style="width: 100%;">
+        <thead class="product-table-header">
+            <tr>
+                <th><input type="checkbox" class="header-checkbox" (click)="selectAllProducts($event)"></th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Category</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products" class="product-table-row">
+                <td><input type="checkbox" [checked]="product.selected"></td>
+                <td><img [src]="product.Product_Image" alt="Product Image" class="product-image"></td>
+                <td>{{ product.Product_Name }}</td>
+                <td>{{ product.Product_ID }}</td>
+                <td>{{ formatPrice(product.Product_Price) }}</td>
+
+                <!-- <td>{{ product.Product_Price | currency:'VND':'symbol-narrow' }}</td> -->
+                <td>{{ product.Product_Stock }}</td>
+                <td>{{ product.Product_Status }}</td>
+                <td>{{ product.Product_Category }}</td>
+                <td>
+                    <div class="table-actions">
+                        <button class="edit-icon" [routerLink]="['/edit-product']" >
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.85707 19.2344L0.785645 21.2144L2.76564 14.1429L15.7142 1.25723C15.8606 1.10756 16.0353 0.988632 16.2283 0.90744C16.4212 0.826248 16.6285 0.784424 16.8378 0.784424C17.0471 0.784424 17.2543 0.826248 17.4473 0.90744C17.6402 0.988632 17.815 1.10756 17.9614 1.25723L20.7428 4.05437C20.8901 4.20046 21.007 4.37426 21.0868 4.56575C21.1665 4.75724 21.2076 4.96264 21.2076 5.17009C21.2076 5.37753 21.1665 5.58293 21.0868 5.77442C21.007 5.96591 20.8901 6.13971 20.7428 6.2858L7.85707 19.2344Z" stroke="#000001" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                                
+                        </button>
+                        
+                        <button class="delete-icon" (click)="deleteProduct(product.Product_ID)">
+                            <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.571289 5.5H19.4284" stroke="#000001" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.92822 5.5H17.0711V19.6429C17.0711 20.0596 16.9055 20.4593 16.6108 20.754C16.3161 21.0487 15.9164 21.2143 15.4997 21.2143H4.49965C4.08288 21.2143 3.68318 21.0487 3.38848 20.754C3.09378 20.4593 2.92822 20.0596 2.92822 19.6429V5.5Z" stroke="#000001" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6.07129 5.49993V4.71422C6.07129 3.67229 6.48519 2.67305 7.22194 1.9363C7.95869 1.19955 8.95794 0.785645 9.99986 0.785645C11.0418 0.785645 12.041 1.19955 12.7778 1.9363C13.5145 2.67305 13.9284 3.67229 13.9284 4.71422V5.49993" stroke="#000001" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.64258 8.64282V17.2857" stroke="#000001" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12.3569 8.64282V17.2857" stroke="#000001" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                                
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Delete Button -->
+    <button class="delete-button" (click)="deleteSelectedProducts()">Delete</button>
+</div>
