@@ -1,0 +1,43 @@
+<!-- header -->
+<app-header-menu (openModalEvent)="openLoginModal()"></app-header-menu>
+
+<!-- content -->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+
+<!-- Footer -->
+<app-footer></app-footer>
+
+
+<!-- Login Modal -->
+<div *ngIf="currentModal === 'login'" class="modal-backdrop" (click)="handleBackdropClick($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()"> 
+    <app-log-in 
+      (closeModalEvent)="closeModal()"
+      (forgotPasswordEvent)="openForgotPasswordModal()"
+      (signUpEvent)="openSignUpModal()">
+    </app-log-in>
+  </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div *ngIf="currentModal === 'forgotPassword'" class="modal-backdrop" (click)="handleBackdropClick($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()"> 
+    <app-forget-password 
+      (closeModalEvent)="closeModal()" 
+      (returnToLoginEvent)="returnToLogin()">
+    </app-forget-password>
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div *ngIf="currentModal === 'signUp'" class="modal-backdrop" (click)="handleBackdropClick($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()"> 
+    <app-sign-up 
+      (closeModalEvent)="closeModal()"
+      (returnToLoginEvent)="returnToLogin()">
+    </app-sign-up>
+  </div>
+</div>
